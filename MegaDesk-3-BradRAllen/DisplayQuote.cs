@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace MegaDesk_3_BradRAllen
 {
-    public partial class Form1 : Form
+    public partial class DisplayQuote : Form
     {
-        public Form1()
+        public DisplayQuote()
         {
             InitializeComponent();
+        }
+
+        private void closeForm_btn_Click(object sender, EventArgs e)
+        {
+            var mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+            Close();
         }
     }
 }
