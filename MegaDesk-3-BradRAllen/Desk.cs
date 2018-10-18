@@ -17,7 +17,7 @@ namespace MegaDesk_3_BradRAllen
         //desk retraints
         public const int WIDTH_MIN = 24;
         public const int WIDTH_MAX = 96;
-        public const int DEPTH_MIN = 12;
+        public const int DEPTH_MIN = 24;
         public const int DEPTH_MAX = 48;
         #endregion
     }

@@ -28,33 +28,54 @@ namespace MegaDesk_3_BradRAllen
         {
             if (int.TryParse(DeskWidth_tb.Text, out int WidthInput))
             {
-                if(WidthInput < Desk.DEPTH_MIN || WidthInput > Desk.DEPTH_MAX)
+                if(WidthInput < Desk.WIDTH_MIN || WidthInput > Desk.WIDTH_MAX)
                 {
                     MessageBox.Show(@"Minimum Width is 24"" and Maximum Width is 96"". Please enter a valid Width");
                     DeskWidth_tb.Text = String.Empty;
-                    DeskWidth_tb.BackColor = Color.Yellow;
                     DeskWidth_tb.Focus();
                 }
             }
             else
             {
                 MessageBox.Show("Please enter width as a whole number.");
-                DeskWidth_tb.Text = String.Empty;
-                DeskWidth_tb.BackColor = Color.Yellow;
+                DeskWidth_tb.Text = string.Empty;
                 DeskWidth_tb.Focus();
             }
         }
 
-        private void DeskDepth_KeyPress(object sender, KeyPressEventArgs e)
+        private void DeskDepth_tb_Validating(object sender, CancelEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (int.TryParse(DeskDepth_tb.Text, out int DepthInput))
             {
-                MessageBox.Show("Please enter depth as a whole number.");
-                DeskDepth_tb.Text = String.Empty;
-                DeskDepth_tb.BackColor = Color.Yellow;
+                if (DepthInput < Desk.DEPTH_MIN || DepthInput > Desk.DEPTH_MAX)
+                {
+                    MessageBox.Show(@"Minimum Depth is 12"" and Maximum Depth is 48"". Please enter a valid Depth");
+                    DeskDepth_tb.Text = String.Empty;
+                    DeskDepth_tb.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter width as a whole number.");
+                DeskDepth_tb.Text = string.Empty;
                 DeskDepth_tb.Focus();
             }
         }
 
+        private void IsWholeNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                MessageBox.Show("Please enter a whole number.");
+                // Stop the character from being entered into the control by cutting off the rest of the method
+                e.Handled = true;
+                this.Focus();
+            }
+        }
+
+        private void AddQuote_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

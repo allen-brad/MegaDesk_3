@@ -94,6 +94,8 @@
             this.DeskWidth_tb.Name = "DeskWidth_tb";
             this.DeskWidth_tb.Size = new System.Drawing.Size(111, 20);
             this.DeskWidth_tb.TabIndex = 9;
+            this.DeskWidth_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsWholeNumber_KeyPress);
+            this.DeskWidth_tb.Validating += new System.ComponentModel.CancelEventHandler(this.DeskWidth_tb_Validating);
             // 
             // label3
             // 
@@ -113,6 +115,8 @@
             this.DeskDepth_tb.Name = "DeskDepth_tb";
             this.DeskDepth_tb.Size = new System.Drawing.Size(111, 20);
             this.DeskDepth_tb.TabIndex = 11;
+            this.DeskDepth_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsWholeNumber_KeyPress);
+            this.DeskDepth_tb.Validating += new System.ComponentModel.CancelEventHandler(this.DeskDepth_tb_Validating);
             // 
             // label4
             // 
@@ -131,7 +135,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(279, 89);
+            this.label5.Location = new System.Drawing.Point(17, 133);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 23);
             this.label5.TabIndex = 12;
@@ -140,7 +144,7 @@
             // 
             // DeskDrawers_tb
             // 
-            this.DeskDrawers_tb.Location = new System.Drawing.Point(281, 111);
+            this.DeskDrawers_tb.Location = new System.Drawing.Point(19, 155);
             this.DeskDrawers_tb.Name = "DeskDrawers_tb";
             this.DeskDrawers_tb.Size = new System.Drawing.Size(84, 20);
             this.DeskDrawers_tb.TabIndex = 13;
@@ -150,7 +154,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(16, 141);
+            this.label6.Location = new System.Drawing.Point(16, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(192, 23);
             this.label6.TabIndex = 14;
@@ -160,7 +164,7 @@
             // SurfaceMaterial_tb
             // 
             this.SurfaceMaterial_tb.FormattingEnabled = true;
-            this.SurfaceMaterial_tb.Location = new System.Drawing.Point(18, 163);
+            this.SurfaceMaterial_tb.Location = new System.Drawing.Point(18, 200);
             this.SurfaceMaterial_tb.Name = "SurfaceMaterial_tb";
             this.SurfaceMaterial_tb.Size = new System.Drawing.Size(224, 21);
             this.SurfaceMaterial_tb.TabIndex = 15;
@@ -168,7 +172,7 @@
             // RushDays_tb
             // 
             this.RushDays_tb.FormattingEnabled = true;
-            this.RushDays_tb.Location = new System.Drawing.Point(18, 215);
+            this.RushDays_tb.Location = new System.Drawing.Point(311, 200);
             this.RushDays_tb.Name = "RushDays_tb";
             this.RushDays_tb.Size = new System.Drawing.Size(111, 21);
             this.RushDays_tb.TabIndex = 17;
@@ -178,9 +182,9 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Location = new System.Drawing.Point(16, 194);
+            this.label7.Location = new System.Drawing.Point(308, 163);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(192, 23);
+            this.label7.Size = new System.Drawing.Size(114, 23);
             this.label7.TabIndex = 16;
             this.label7.Text = "Rush Order";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,6 +223,7 @@
             this.Controls.Add(this.closeForm_btn);
             this.Name = "AddQuote";
             this.Text = "AddQuote";
+            this.Load += new System.EventHandler(this.AddQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DeskDrawers_tb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
